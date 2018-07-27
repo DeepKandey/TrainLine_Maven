@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Train Line Assignment suite" duration-ms="55338" started-at="2018-07-27T10:17:37Z" finished-at="2018-07-27T10:18:32Z">
+  <suite name="Train Line Assignment suite" duration-ms="50217" started-at="2018-07-27T10:21:57Z" finished-at="2018-07-27T10:22:47Z">
     <groups>
     </groups>
-    <test name="Ticket Fare Test" duration-ms="55338" started-at="2018-07-27T10:17:37Z" finished-at="2018-07-27T10:18:32Z">
+    <test name="Ticket Fare Test" duration-ms="50217" started-at="2018-07-27T10:21:57Z" finished-at="2018-07-27T10:22:47Z">
       <class name="com.qa.tests.TicketFareTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.qa.tests.TicketFareTest@6b143ee9]" name="setUp" is-config="true" duration-ms="17105" started-at="2018-07-27T10:17:37Z" finished-at="2018-07-27T10:17:54Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.qa.tests.TicketFareTest@6b143ee9]" name="setUp" is-config="true" duration-ms="11378" started-at="2018-07-27T10:21:57Z" finished-at="2018-07-27T10:22:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="verifyTicketFare()[pri:0, instance:com.qa.tests.TicketFareTest@6b143ee9]" name="verifyTicketFare" duration-ms="37431" started-at="2018-07-27T10:17:54Z" finished-at="2018-07-27T10:18:32Z">
+        <test-method status="PASS" signature="verifyTicketFare()[pri:0, instance:com.qa.tests.TicketFareTest@6b143ee9]" name="verifyTicketFare" duration-ms="38086" started-at="2018-07-27T10:22:08Z" finished-at="2018-07-27T10:22:46Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyTicketFare -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.qa.tests.TicketFareTest@6b143ee9]" name="tearDown" is-config="true" duration-ms="732" started-at="2018-07-27T10:18:32Z" finished-at="2018-07-27T10:18:32Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.qa.tests.TicketFareTest@6b143ee9]" name="tearDown" is-config="true" duration-ms="742" started-at="2018-07-27T10:22:46Z" finished-at="2018-07-27T10:22:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
