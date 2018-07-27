@@ -1,0 +1,5 @@
+com\qa\pageobjects\SearchPage.class
+com\qa\pageobjects\MatrixPage.class
+com\qa\pageobjects\RegisterPage.class
+com\qa\base\Base.class
+com\qa\pageobjects\CheckOutPage.class

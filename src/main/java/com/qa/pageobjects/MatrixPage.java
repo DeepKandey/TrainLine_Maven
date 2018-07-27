@@ -1,5 +1,6 @@
 package com.qa.pageobjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -24,6 +25,9 @@ public class MatrixPage extends Base{
 	public void clickOnFirstClassOption() {
 		wait.until(ExpectedConditions.elementToBeClickable(ticketFareRadioBtn));
 		ticketFareRadioBtn.click();
+		if(driver.findElements(By.xpath("descendant::input[@type='radio'][5]")).size() != 0){
+			ticketFareRadioBtn.click();
+		}
 	}
 
 	public String getFareOnMatrixPage() {
@@ -38,7 +42,6 @@ public class MatrixPage extends Base{
 	
 	public void clickOnChckOut() {
 		wait.until(ExpectedConditions.visibilityOf(quickChckOut));
-		wait.until(ExpectedConditions.elementToBeClickable(quickChckOut));
 		quickChckOut.click();
 	}
 	

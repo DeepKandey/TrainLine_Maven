@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Train Line Assignment suite">
-  <test name="Ticket Fare Test" >
-    <classes>
-      <class name="com.qa.tests.TicketFareTest"/>
-    </classes>
-  </test> <!-- Default test -->
-</suite> <!-- Default suite -->

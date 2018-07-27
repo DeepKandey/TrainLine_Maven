@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Train Line Assignment suite" duration-ms="55338" started-at="2018-07-27T10:17:37Z" finished-at="2018-07-27T10:18:32Z">
+    <groups>
+    </groups>
+    <test name="Ticket Fare Test" duration-ms="55338" started-at="2018-07-27T10:17:37Z" finished-at="2018-07-27T10:18:32Z">
+      <class name="com.qa.tests.TicketFareTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.qa.tests.TicketFareTest@6b143ee9]" name="setUp" is-config="true" duration-ms="17105" started-at="2018-07-27T10:17:37Z" finished-at="2018-07-27T10:17:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="verifyTicketFare()[pri:0, instance:com.qa.tests.TicketFareTest@6b143ee9]" name="verifyTicketFare" duration-ms="37431" started-at="2018-07-27T10:17:54Z" finished-at="2018-07-27T10:18:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyTicketFare -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.qa.tests.TicketFareTest@6b143ee9]" name="tearDown" is-config="true" duration-ms="732" started-at="2018-07-27T10:18:32Z" finished-at="2018-07-27T10:18:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.qa.tests.TicketFareTest -->
+    </test> <!-- Ticket Fare Test -->
+  </suite> <!-- Train Line Assignment suite -->
+</testng-results>

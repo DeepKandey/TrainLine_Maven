@@ -39,7 +39,11 @@ public class SearchPage extends Base{
 
 	public MatrixPage clickOnSearchBtn() {  
 	    wait.until(ExpectedConditions.elementToBeClickable(searchButton));
-		searchButton.click();		
+		searchButton.click();
+		while(driver.findElements(By.xpath("//button[@data-test='submit-journey-search-button']")).size() != 0){
+			System.out.println("search button is still present after first Click");
+			searchButton.click();
+		}
 		return new MatrixPage();
 	}
 }

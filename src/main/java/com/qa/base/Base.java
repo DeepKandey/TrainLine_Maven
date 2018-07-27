@@ -15,7 +15,6 @@ public class Base {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
 		driver.get("https://www.thetrainline.com/");
 		wait = new WebDriverWait(driver, 15);  
