@@ -48,7 +48,7 @@ public class TicketFareTest extends Base{
 		Thread.sleep(3000);
 		matrixPage.clickOnChckOut();
 		checkOutPage.enterDetailsforCheckOut();
-		String fareOnCheckOutPage=checkOutPage.getFareOnChckOut();
+		String fareOnCheckOutPage=checkOutPage.getFareOnChckOutPage();
 		
 		Assert.assertEquals(fareOnCheckOutPage, fareOnMatrixPage,"Fares do not match");
 		

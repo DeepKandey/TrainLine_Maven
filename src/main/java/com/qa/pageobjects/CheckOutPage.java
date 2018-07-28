@@ -28,7 +28,7 @@ public class CheckOutPage extends Base{
 		submitBtn.click();
 	}
 	
-	public String getFareOnChckOut() {
+	public String getFareOnChckOutPage() {
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@data-test='trip-card-total']")));
 		String fareOnChckOut=fareOnCheckOut.getAttribute("innerHTML");
 		return fareOnChckOut;

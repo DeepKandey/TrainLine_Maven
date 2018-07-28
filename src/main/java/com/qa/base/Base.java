@@ -9,12 +9,18 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.qa.util.TestUtil;
+import com.qa.util.WebEventListener;
 
 public class Base {
 	public static WebDriver driver;
 	public static WebDriverWait wait;
 	public static Properties prop;
+	public static EventFiringWebDriver e_driver;
+	public static WebEventListener eventListener;
 	
 	public Base() {
 		prop = new Properties();
@@ -32,9 +38,16 @@ public class Base {
 	public void initialization() {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\deepa\\Downloads\\chromedriver.exe");
 		driver = new ChromeDriver();
+		
+		e_driver = new EventFiringWebDriver(driver);
+		// Now create object of EventListerHandler to register it with EventFiringWebDriver
+		eventListener = new WebEventListener();
+		e_driver.register(eventListener);
+		driver=e_driver;
+		
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
-		wait = new WebDriverWait(driver, 15);  
+		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+		wait = new WebDriverWait(driver, TestUtil.EXPLICIT_WAIT);  
 	}
 }
