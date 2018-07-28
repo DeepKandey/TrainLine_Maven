@@ -21,6 +21,7 @@ public class TicketFareTest extends Base{
 	@BeforeMethod
 	public void setUp() {
 		initialization();
+		driver.get(prop.getProperty("url"));
 		searchPage = new SearchPage();
     	matrixPage = new MatrixPage();
     	registerPage = new RegisterPage();	
@@ -38,7 +39,7 @@ public class TicketFareTest extends Base{
 		searchPage.enterJourneyDetails();
 		searchPage.clickOnSearchBtn();
 		matrixPage.clickOnFirstClassOption();
-		registerPage=matrixPage.clickOnRegister();
+		registerPage=matrixPage.clickOnRegisterLink();
 		registerPage.enterRegistrationDetails();
 		searchPage=registerPage.clickOnRegisterBtn();
 		searchPage.clickOnSearchBtn();

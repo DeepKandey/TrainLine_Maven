@@ -35,7 +35,7 @@ public class MatrixPage extends Base{
 		return fareOnMatrixPage;
 	}
 	
-	public RegisterPage clickOnRegister() {
+	public RegisterPage clickOnRegisterLink() {
 		register.click();
 		return new RegisterPage();
 	}
