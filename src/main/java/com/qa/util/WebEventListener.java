@@ -1,7 +1,5 @@
 package com.qa.util;
 
-import java.io.IOException;
-
 /*************************************** PURPOSE **********************************
 - This class implements the WebDriverEventListener, which is included under events.
 The purpose of implementing this interface is to override all the methods and define certain useful  Log statements 
