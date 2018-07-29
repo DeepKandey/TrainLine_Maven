@@ -20,7 +20,5 @@ public class TestUtil extends Base {
 		String currentDir = System.getProperty("user.dir");
 		
 		FileUtils.copyFile(scrFile, new File(currentDir + "/screenshots/" + System.currentTimeMillis() + ".png"));
-		
 		}
-
 }

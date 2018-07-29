@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Train Line Assignment suite]">
+  <listeners>
+    <listener class-name="com.qa.extentReportListener.ExtentTestNGIReporterListener"/>
+  </listeners>
   <test thread-count="5" name="Ticket Fare Test(failed)">
     <classes>
       <class name="com.qa.tests.TicketFareTest">

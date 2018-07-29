@@ -133,11 +133,11 @@ public class WebEventListener extends Base implements WebDriverEventListener {
 	public void onException(Throwable throwable, WebDriver driver) {
 		// TODO Auto-generated method stub
 		System.out.println("Exception occured: " + throwable);
-		try {
+		/*try {
 			TestUtil.takeScreenshotAtEndOfTest();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 	public <X> void beforeGetScreenshotAs(OutputType<X> target) {

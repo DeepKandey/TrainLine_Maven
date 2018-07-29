@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Train Line Assignment suite">
+<listeners>
+<listener class-name="com.qa.extentReportListener.ExtentTestNGIReporterListener" />
+</listeners>
   <test name="Ticket Fare Test" >
     <classes>
       <class name="com.qa.tests.TicketFareTest"/>
