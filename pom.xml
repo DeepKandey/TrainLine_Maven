@@ -29,30 +29,30 @@
             </dependency>
             
 		   <dependency>
-			    <groupId>log4j</groupId>
-			    <artifactId>log4j</artifactId>
-			    <version>1.2.17</version>
-		 </dependency>
+			   <groupId>log4j</groupId>
+			   <artifactId>log4j</artifactId>
+			   <version>1.2.17</version>
+		  </dependency>
         
           <dependency>
               <groupId>org.apache.commons</groupId>
               <artifactId>commons-lang3</artifactId>
               <version>3.7</version>
-         </dependency>
+          </dependency>
          
-         <dependency>
+          <dependency>
              <groupId>commons-io</groupId>
              <artifactId>commons-io</artifactId>
              <version>2.6</version>
-        </dependency>
+         </dependency>
 		 
 		 <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
-<dependency>
-    <groupId>com.aventstack</groupId>
-    <artifactId>extentreports</artifactId>
-    <version>3.1.5</version>
-    <scope>provided</scope>
-</dependency>
+         <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>3.1.5</version>
+            <scope>provided</scope>
+         </dependency>
 		 
   </dependencies>
   
