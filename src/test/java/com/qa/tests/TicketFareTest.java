@@ -10,7 +10,6 @@ import com.qa.pageobjects.CheckOutPage;
 import com.qa.pageobjects.MatrixPage;
 import com.qa.pageobjects.RegisterPage;
 import com.qa.pageobjects.SearchPage;
-import com.qa.util.RetryAnalyzer;
 
 public class TicketFareTest extends Base{
 	
@@ -51,12 +50,10 @@ public class TicketFareTest extends Base{
 		matrixPage.clickOnChckOut();
 		checkOutPage.enterDetailsforCheckOut();
 		String fareOnCheckOutPage=checkOutPage.getFareOnChckOutPage();
-		
-		Assert.assertTrue(false);
-		//Assert.assertEquals(fareOnCheckOutPage, fareOnMatrixPage,"Fares do not match");
-		
 		if(fareOnCheckOutPage.equals(fareOnMatrixPage)) {
 			System.out.println("Ticket fares are matching");
 		}
+	
+		Assert.assertEquals(fareOnCheckOutPage, fareOnMatrixPage,"Fares do not match");
 	}
 }

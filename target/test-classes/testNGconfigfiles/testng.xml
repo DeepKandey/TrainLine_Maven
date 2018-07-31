@@ -4,10 +4,16 @@
    <listeners>
       <listener class-name="com.qa.extentReportListener.ExtentTestNGIReporterListener" />
       <listener class-name="com.qa.util.AnnotationTransformer" />
+      <listener class-name="com.qa.util.TestListener" />
    </listeners>
   <test name="Ticket Fare Test" >
     <classes>
-      <class name="com.qa.tests.TicketFareTest"/>
-    </classes>
+        <class name="com.qa.tests.DemoTest">
+          <methods>
+             <include name="demoTest" />
+           </methods>
+        </class>
+       <!-- <class name="com.qa.tests.TicketFareTest"/> --> 
+     </classes>
   </test> <!-- Default test -->
 </suite> <!-- Default suite -->

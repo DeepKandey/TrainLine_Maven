@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test thread-count="5" name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Train Line Assignment suite]">
+  <listeners>
+    <listener class-name="com.qa.extentReportListener.ExtentTestNGIReporterListener"/>
+    <listener class-name="com.qa.util.AnnotationTransformer"/>
+    <listener class-name="com.qa.util.TestListener"/>
+  </listeners>
+  <test thread-count="5" name="Ticket Fare Test(failed)">
     <classes>
-      <class name="com.qa.tests.TicketFareTest">
+      <class name="com.qa.tests.DemoTest">
         <methods>
           <include name="tearDown"/>
-          <include name="verifyTicketFare"/>
-          <include name="setUp"/>
+          <include name="demoTest"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- com.qa.tests.TicketFareTest -->
+      </class> <!-- com.qa.tests.DemoTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Ticket Fare Test(failed) -->
+</suite> <!-- Failed suite [Train Line Assignment suite] -->
