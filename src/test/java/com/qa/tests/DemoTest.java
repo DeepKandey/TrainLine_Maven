@@ -1,11 +1,15 @@
 package com.qa.tests;
 
+import java.io.IOException;
+
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.qa.base.Base;
+
 
 public class DemoTest extends Base{
 	
@@ -15,7 +19,7 @@ public class DemoTest extends Base{
 	}
 
 	@AfterMethod
-	public void tearDown() {
+	public void tearDown(ITestResult result) throws IOException {
 		driver.quit();
 	}
 	

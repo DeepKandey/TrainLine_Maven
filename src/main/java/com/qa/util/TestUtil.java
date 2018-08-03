@@ -17,12 +17,14 @@ public class TestUtil extends Base {
 	public static long IMPLICIT_WAIT = 5;
 	public static long EXPLICIT_WAIT=15;
 	
-	public static void takeScreenshotAtEndOfTest(String methodName) throws IOException {
+	public static String takeScreenshotAtEndOfTest(String methodName) throws IOException {
 		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		String currentDir = System.getProperty("user.dir");
 		
 		Date date = new Date();
 		SimpleDateFormat dateformat= new SimpleDateFormat("dd-MM-yyyy hh-mm-ss");
+		String path = currentDir + "/screenshots/" +methodName + "_" + dateformat.format(date)+ ".png";
 		FileUtils.copyFile(scrFile, new File(currentDir + "/screenshots/" +methodName + "_" + dateformat.format(date)+ ".png"));
+		return path;
 		}
 }

@@ -6,7 +6,7 @@ import org.testng.ITestResult;
 public class RetryAnalyzer implements IRetryAnalyzer{
 
 	int counter = 0;
-	int retryLimit=2;
+	int retryLimit=1;
 	/*
 	 * This method decides how many times a test needs to be rerun.
 	 * TestNg will call this method every time a test fails. So we 

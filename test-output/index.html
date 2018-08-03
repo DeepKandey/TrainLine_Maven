@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods, 1 failed,  2 skipped,  </span>
+                    <span class="method-stats">2 methods, 1 failed,  1 skipped,  </span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -114,11 +114,6 @@
                       <a href="#" panel-name="suite-Train_Line_Assignment_suite" class="show-methods skipped suite-Train_Line_Assignment_suite"> (show)</a> <!-- show-methods skipped suite-Train_Line_Assignment_suite -->
                     </span>
                     <div class="method-list-content skipped suite-Train_Line_Assignment_suite">
-                      <span>
-                        <img width="3%" src="skipped.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Train_Line_Assignment_suite" title="com.qa.tests.DemoTest" hash-for-method="demoTest">demoTest</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
                       <span>
                         <img width="3%" src="skipped.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-Train_Line_Assignment_suite" title="com.qa.tests.DemoTest" hash-for-method="demoTest">demoTest</a> <!-- method navigator-link -->
@@ -148,7 +143,7 @@
                   </a> <!-- demoTest -->
                   <span class="method-name">demoTest</span>
                   <div class="stack-trace">java.lang.AssertionError: expected [false] but found [true]
-	at com.qa.tests.DemoTest.demoTest(DemoTest.java:25)
+	at com.qa.tests.DemoTest.demoTest(DemoTest.java:29)
 ... Removed 31 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
@@ -167,18 +162,7 @@
                   </a> <!-- demoTest -->
                   <span class="method-name">demoTest</span>
                   <div class="stack-trace">java.lang.AssertionError: expected [false] but found [true]
-	at com.qa.tests.DemoTest.demoTest(DemoTest.java:25)
-... Removed 31 stack frames
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="demoTest">
-                  </a> <!-- demoTest -->
-                  <span class="method-name">demoTest</span>
-                  <div class="stack-trace">java.lang.AssertionError: expected [false] but found [true]
-	at com.qa.tests.DemoTest.demoTest(DemoTest.java:25)
+	at com.qa.tests.DemoTest.demoTest(DemoTest.java:29)
 ... Removed 31 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
@@ -196,9 +180,8 @@
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Train Line Assignment suite&quot;&gt;
   &lt;listeners&gt;
-    &lt;listener class-name=&quot;com.qa.extentReportListener.ExtentTestNGIReporterListener&quot;/&gt;
     &lt;listener class-name=&quot;com.qa.util.AnnotationTransformer&quot;/&gt;
-    &lt;listener class-name=&quot;com.qa.util.TestListener&quot;/&gt;
+    &lt;listener class-name=&quot;com.qa.report.ExtentTestNGITestListener&quot;/&gt;
   &lt;/listeners&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Ticket Fare Test&quot;&gt;
     &lt;classes&gt;
@@ -246,24 +229,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'demoTest')
 data.setCell(0, 2, 'com.qa.tests.DemoTest')
-data.setCell(0, 3, 2773);
+data.setCell(0, 3, 1613);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'demoTest')
 data.setCell(1, 2, 'com.qa.tests.DemoTest')
-data.setCell(1, 3, 2521);
-data.setCell(2, 0, 2)
-data.setCell(2, 1, 'demoTest')
-data.setCell(2, 2, 'com.qa.tests.DemoTest')
-data.setCell(2, 3, 2278);
+data.setCell(1, 3, 1154);
 window.suiteTableData['Train_Line_Assignment_suite']= { tableData: data, tableDiv: 'times-div-Train_Line_Assignment_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 7 seconds</span>
+              <span class="suite-total-time">Total running time: 2 seconds</span>
               <div id="times-div-Train_Line_Assignment_suite">
               </div> <!-- times-div-Train_Line_Assignment_suite -->
             </div> <!-- times-div -->
@@ -296,37 +275,25 @@ return data;
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">demoTest</span>
-                <span class="method-start">4920 ms</span>
+                <span class="method-start">4374 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">7700 ms</span>
+                <span class="method-name">tearDown([TestResult name=demoTest status=SKIP method=DemoTest.demoTest()[pri:0, instance:com.qa.tests.DemoTe...)</span>
+                <span class="method-start">5552 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setup</span>
-                <span class="method-start">8404 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">demoTest</span>
-                <span class="method-start">12371 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">14893 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">setup</span>
-                <span class="method-start">15615 ms</span>
+                <span class="method-start">6255 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">demoTest</span>
-                <span class="method-start">19779 ms</span>
+                <span class="method-start">9839 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">22518 ms</span>
+                <span class="method-name">tearDown([TestResult name=demoTest status=FAILURE method=DemoTest.demoTest()[pri:0, instance:com.qa.tests.Dem...)</span>
+                <span class="method-start">12169 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

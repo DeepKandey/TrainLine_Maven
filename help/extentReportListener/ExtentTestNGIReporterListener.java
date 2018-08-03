@@ -19,14 +19,15 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.qa.base.Base;
 
 
-public class ExtentTestNGIReporterListener implements IReporter {
+public class ExtentTestNGIReporterListener extends Base implements IReporter {
     
     private static final String OUTPUT_FOLDER = "test-output/";
     private static final String FILE_NAME = "Extent.html";
     
-    private com.aventstack.extentreports.ExtentReports extent;
+   private com.aventstack.extentreports.ExtentReports extent;
 
     private void init() {
         ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(OUTPUT_FOLDER + FILE_NAME);
@@ -37,7 +38,7 @@ public class ExtentTestNGIReporterListener implements IReporter {
         
         extent = new ExtentReports();
         extent.attachReporter(htmlReporter);
-        extent.setReportUsesManualConfiguration(true);
+        extent.setReportUsesManualConfiguration(true); 
     }
     
     private void buildTestNodes(IResultMap tests, Status status) {
@@ -89,8 +90,6 @@ public class ExtentTestNGIReporterListener implements IReporter {
         for (String s : Reporter.getOutput()) {
             extent.setTestRunnerOutput(s);
         }
-        
         extent.flush();
-		
 	}
 }

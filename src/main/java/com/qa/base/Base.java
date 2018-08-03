@@ -23,6 +23,7 @@ public class Base {
 	public static WebEventListener eventListener;
 	
 	public Base() {
+		
 		prop = new Properties();
 		File file = new File(System.getProperty("user.dir")+"\\src\\main\\java\\com\\qa\\config\\config.properties");
 		try {
@@ -40,7 +41,7 @@ public class Base {
 		driver = new ChromeDriver();
 		
 		e_driver = new EventFiringWebDriver(driver);
-		// Now create object of EventListerHandler to register it with EventFiringWebDriver
+		// Now create object of EventListenerHandler to register it with EventFiringWebDriver
 		eventListener = new WebEventListener();
 		e_driver.register(eventListener);
 		driver=e_driver;
