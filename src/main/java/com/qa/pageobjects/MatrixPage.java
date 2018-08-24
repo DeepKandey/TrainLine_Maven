@@ -17,7 +17,7 @@ public class MatrixPage extends Base{
 	private WebElement ticketFareValue;
 	
 	@FindBy(linkText="Register")
-	private WebElement register;
+	private WebElement registerLnk;
 	
 	@FindBy(xpath="//button[@data-test='cjs-button-quick-buy']")
 	private WebElement quickChckOut;
@@ -36,7 +36,7 @@ public class MatrixPage extends Base{
 	}
 	
 	public RegisterPage clickOnRegisterLink() {
-		register.click();
+		registerLnk.click();
 		return new RegisterPage();
 	}
 	

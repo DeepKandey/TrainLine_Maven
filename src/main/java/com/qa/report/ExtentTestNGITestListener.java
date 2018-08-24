@@ -18,7 +18,7 @@ public class ExtentTestNGITestListener extends Base implements ITestListener{
 
 	//Extent Report Declarations
     private static ExtentReports extent = ExtentManager.createInstance();
-    private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
+    private static ThreadLocal<ExtentTest> test = new ThreadLocal<ExtentTest>();
     
 	public void onTestStart(ITestResult result) {
 		// TODO Auto-generated method stub

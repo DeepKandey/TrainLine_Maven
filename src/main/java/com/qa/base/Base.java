@@ -23,7 +23,6 @@ public class Base {
 	public static WebEventListener eventListener;
 	
 	public Base() {
-		
 		prop = new Properties();
 		File file = new File(System.getProperty("user.dir")+"\\src\\main\\java\\com\\qa\\config\\config.properties");
 		try {

@@ -69,9 +69,8 @@ public class RegisterPage extends Base{
 		postcode.sendKeys("411207");
 	}
 
-	public SearchPage clickOnRegisterBtn() {
+	public void clickOnRegisterBtn() {
 		registerBtn.click();
-		return new SearchPage();
 	}
 	
 	public RegisterPage() {

@@ -42,7 +42,7 @@ public class TicketFareTest extends Base{
 		matrixPage.clickOnFirstClassOption();
 		registerPage=matrixPage.clickOnRegisterLink();
 		registerPage.enterRegistrationDetails();
-		searchPage=registerPage.clickOnRegisterBtn();
+		registerPage.clickOnRegisterBtn();
 		searchPage.clickOnSearchBtn();
 		matrixPage.clickOnFirstClassOption();
 		String fareOnMatrixPage= matrixPage.getFareOnMatrixPage();
