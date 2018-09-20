@@ -11,49 +11,50 @@ import com.qa.pageobjects.MatrixPage;
 import com.qa.pageobjects.RegisterPage;
 import com.qa.pageobjects.SearchPage;
 
-public class TicketFareTest extends Base{
-	
+public class TicketFareTest extends Base {
+
 	public SearchPage searchPage;
 	public MatrixPage matrixPage;
 	public RegisterPage registerPage;
 	public CheckOutPage checkOutPage;
-	
+
 	@BeforeMethod
 	public void setUp() {
 		initialization();
 		driver.get(prop.getProperty("url"));
 		searchPage = new SearchPage();
-    	matrixPage = new MatrixPage();
-    	registerPage = new RegisterPage();	
-    	checkOutPage = new CheckOutPage();
+		matrixPage = new MatrixPage();
+		registerPage = new RegisterPage();
+		checkOutPage = new CheckOutPage();
 	}
 
 	@AfterTest
 	public void tearDown() {
-		if(driver!=null)
+		if (driver != null)
 			driver.quit();
+		driver = null;
 	}
-	
-	//@Test(retryAnalyzer=RetryAnalyzer.class)
+
+	// @Test(retryAnalyzer=RetryAnalyzer.class)
 	@Test
 	public void verifyTicketFare() throws InterruptedException {
 		searchPage.enterJourneyDetails();
 		searchPage.clickOnSearchBtn();
 		matrixPage.clickOnFirstClassOption();
-		registerPage=matrixPage.clickOnRegisterLink();
+		registerPage = matrixPage.clickOnRegisterLink();
 		registerPage.enterRegistrationDetails();
 		registerPage.clickOnRegisterBtn();
 		searchPage.clickOnSearchBtn();
 		matrixPage.clickOnFirstClassOption();
-		String fareOnMatrixPage= matrixPage.getFareOnMatrixPage();
+		String fareOnMatrixPage = matrixPage.getFareOnMatrixPage();
 		Thread.sleep(3000);
 		matrixPage.clickOnChckOut();
 		checkOutPage.enterDetailsforCheckOut();
-		String fareOnCheckOutPage=checkOutPage.getFareOnChckOutPage();
-		if(fareOnCheckOutPage.equals(fareOnMatrixPage)) {
+		String fareOnCheckOutPage = checkOutPage.getFareOnChckOutPage();
+		if (fareOnCheckOutPage.equals(fareOnMatrixPage)) {
 			System.out.println("Ticket fares are matching");
 		}
-	
-		Assert.assertEquals(fareOnCheckOutPage, fareOnMatrixPage,"Fares do not match");
+
+		Assert.assertEquals(fareOnCheckOutPage, fareOnMatrixPage, "Fares do not match");
 	}
 }
