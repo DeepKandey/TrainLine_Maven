@@ -50,7 +50,7 @@ public class RegisterPage extends Base{
 	@FindBy(xpath="//button[@data-test='manual-address-entry-button']")
 	private WebElement manualAddressBtn;
 		
-	public void enterRegistrationDetails() {
+	public void enterRegistrationDetails(String addressData1,String addressData2) {
 		WebDriverWait wait = new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("email")));
 		String emailId = RandomStringUtils.randomAlphanumeric(10);
@@ -62,8 +62,8 @@ public class RegisterPage extends Base{
 		manualAddressBtn.click();
 		Select select = new Select(countryDropDown);
 		select.selectByVisibleText("India");
-		addressLine1.sendKeys("asafkjhf");
-		addressLine2.sendKeys("asafkjhf");
+		addressLine1.sendKeys(addressData1);
+		addressLine2.sendKeys(addressData2);
 		city.sendKeys("Mumbai");
 		state.sendKeys("Maharashtra");
 		postcode.sendKeys("411207");

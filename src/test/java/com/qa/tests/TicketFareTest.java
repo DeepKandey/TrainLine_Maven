@@ -1,8 +1,11 @@
 package com.qa.tests;
 
+import java.io.IOException;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.qa.base.Base;
@@ -10,6 +13,7 @@ import com.qa.pageobjects.CheckOutPage;
 import com.qa.pageobjects.MatrixPage;
 import com.qa.pageobjects.RegisterPage;
 import com.qa.pageobjects.SearchPage;
+import com.qa.util.TestUtil;
 
 public class TicketFareTest extends Base {
 
@@ -35,14 +39,20 @@ public class TicketFareTest extends Base {
 		driver = null;
 	}
 
+	@DataProvider
+	public Object[][] getData() throws IOException {
+		Object userData[][] = TestUtil.getExcelData(TestUtil.TEST_DATA_PATH, "Sheet2");
+		return userData;
+	}
+
 	// @Test(retryAnalyzer=RetryAnalyzer.class)
-	@Test
-	public void verifyTicketFare() throws InterruptedException {
+	@Test(dataProvider = "getData")
+	public void verifyTicketFare(String addressData1, String addressData2) throws InterruptedException {
 		searchPage.enterJourneyDetails();
 		searchPage.clickOnSearchBtn();
 		matrixPage.clickOnFirstClassOption();
 		registerPage = matrixPage.clickOnRegisterLink();
-		registerPage.enterRegistrationDetails();
+		registerPage.enterRegistrationDetails(addressData1, addressData2);
 		registerPage.clickOnRegisterBtn();
 		searchPage.clickOnSearchBtn();
 		matrixPage.clickOnFirstClassOption();
