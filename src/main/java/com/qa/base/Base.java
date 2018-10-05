@@ -36,12 +36,10 @@ public class Base {
 	}
 
 	public void initialization() {
-
 		if (driver == null) {
 			System.setProperty("webdriver.chrome.driver", "C:\\Users\\deepa\\Downloads\\chromedriver.exe");
 			driver = new ChromeDriver();
 		}
-
 		e_driver = new EventFiringWebDriver(driver);
 		// Now create object of EventListenerHandler to register it with
 		// EventFiringWebDriver

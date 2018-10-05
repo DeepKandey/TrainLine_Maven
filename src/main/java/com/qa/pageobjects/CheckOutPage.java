@@ -8,33 +8,31 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.qa.base.Base;
 
-public class CheckOutPage extends Base{ 
-	
-	@FindBy(id="email")
+public class CheckOutPage extends Base {
+	@FindBy(id = "email")
 	private WebElement emailID;
-	
-	@FindBy(id="password")
+
+	@FindBy(id = "password")
 	private WebElement password;
-	
-	@FindBy(xpath="//button[@data-test='login-submit-button']")
+
+	@FindBy(xpath = "//button[@data-test='login-submit-button']")
 	private WebElement submitBtn;
-	
-	@FindBy(xpath="//span[@data-test='trip-card-total']/span")
+
+	@FindBy(xpath = "//span[@data-test='trip-card-total']/span")
 	private WebElement fareOnCheckOut;
-	
-	public void enterDetailsforCheckOut() {
+
+	public void enterDetailsForCheckOut() {
 		emailID.sendKeys(RegisterPage.randomGeneratedEmailId);
 		password.sendKeys("123456");
 		submitBtn.click();
 	}
-	
+
 	public String getFareOnChckOutPage() {
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@data-test='trip-card-total']")));
-		String fareOnChckOut=fareOnCheckOut.getAttribute("innerHTML");
-		return fareOnChckOut;
+		return fareOnCheckOut.getAttribute("innerHTML");
 	}
-	
+
 	public CheckOutPage() {
-		PageFactory.initElements(driver,this);
+		PageFactory.initElements(driver, this);
 	}
 }

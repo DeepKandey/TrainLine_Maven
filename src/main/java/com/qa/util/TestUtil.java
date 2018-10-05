@@ -19,9 +19,10 @@ public class TestUtil extends Base {
 	public static final long PAGE_LOAD_TIMEOUT = 40;
 	public static final long IMPLICIT_WAIT = 5;
 	public static final long EXPLICIT_WAIT = 15;
-	public static final String TEST_DATA_PATH = "C:/Users/deepa/Downloads/TestDocument.xlsx";
-	public static FileInputStream fis = null;
-	public static XSSFWorkbook workbook = null;
+	public static final String TEST_DATA_PATH = System.getProperty("user.dir")
+			+ "\\src\\main\\java\\com\\qa\\testData\\TestDocument.xlsx";
+	private static FileInputStream fis = null;
+	private static XSSFWorkbook workbook = null;
 	private static XSSFSheet sheet = null;
 
 	public static String takeScreenshotAtEndOfTest(String methodName) throws IOException {
@@ -36,7 +37,7 @@ public class TestUtil extends Base {
 		return path;
 	}
 
-	// 1.return data from the excel
+	// Return data from the excel
 	public static String[][] getExcelData(String filePath, String sheetName) throws IOException {
 		String[][] arrayData = null;
 		try {
@@ -56,8 +57,8 @@ public class TestUtil extends Base {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			workbook.close();
-			fis.close();
+			//workbook.close();
+			//fis.close();
 		}
 		return arrayData;
 	}
