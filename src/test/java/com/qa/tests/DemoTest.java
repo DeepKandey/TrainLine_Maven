@@ -10,9 +10,8 @@ import org.testng.annotations.Test;
 
 import com.qa.base.Base;
 
+public class DemoTest extends Base {
 
-public class DemoTest extends Base{
-	
 	@BeforeMethod
 	public void setup() {
 		initialization();
@@ -22,7 +21,7 @@ public class DemoTest extends Base{
 	public void tearDown(ITestResult result) throws IOException {
 		driver.quit();
 	}
-	
+
 	@Test
 	public void demoTest() {
 		driver.get("https://www.google.com");
