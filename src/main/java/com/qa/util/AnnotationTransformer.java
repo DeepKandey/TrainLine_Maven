@@ -10,7 +10,6 @@ public class AnnotationTransformer implements IAnnotationTransformer{
 
 	@SuppressWarnings("rawtypes")
 	public void transform(ITestAnnotation annotation, Class testClass, Constructor testConstructor, Method testMethod) {
-		// TODO Auto-generated method stub
 		annotation.setRetryAnalyzer(RetryAnalyzer.class);
 	}
 }

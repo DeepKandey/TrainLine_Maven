@@ -8,6 +8,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.qa.util.LoggerUtil;
 
 public class ExtentManager {
 
@@ -54,10 +55,10 @@ public class ExtentManager {
 		case WIN10:
 			reportFileLocation = winReportFileLoc;
 			createReportPath(windowsPath);
-			System.out.println("ExtentReport Path for WINDOWS: " + windowsPath + "\n");
+			LoggerUtil.logMessage("ExtentReport Path for WINDOWS: " + windowsPath + "\n");
 			break;
 		default:
-			System.out.println("ExtentReport path has not been set! There is a problem!\n");
+			LoggerUtil.logMessage("ExtentReport path has not been set! There is a problem!\n");
 			break;
 		}
 		return reportFileLocation;
@@ -68,12 +69,12 @@ public class ExtentManager {
 		File testDirectory = new File(path);
 		if (!testDirectory.exists()) {
 			if (testDirectory.mkdir()) {
-				System.out.println("Directory: " + path + " is created!");
+				LoggerUtil.logMessage("Directory: " + path + " is created!");
 			} else {
-				System.out.println("Failed to create directory: " + path);
+				LoggerUtil.logMessage("Failed to create directory: " + path);
 			}
 		} else {
-			System.out.println("Directory already exists: " + path);
+			LoggerUtil.logMessage("Directory already exists: " + path);
 		}
 	}
 
