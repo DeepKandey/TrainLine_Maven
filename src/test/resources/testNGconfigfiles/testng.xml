@@ -10,10 +10,10 @@
     <classes>
         <class name="com.qa.tests.DemoTest">
           <methods>
-             <include name="demoTest" />
+             <exclude name="demoTest" />
            </methods>
         </class>
-       <!-- <class name="com.qa.tests.TicketFareTest"/> --> 
+       <class name="com.qa.tests.TicketFareTest"/> 
      </classes>
   </test> <!-- Default test -->
 </suite> <!-- Default suite -->

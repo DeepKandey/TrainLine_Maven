@@ -11,50 +11,50 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.qa.base.Base;
 
-public class RegisterPage extends Base{
+public class RegisterPage extends Base {
 	public static String randomGeneratedEmailId;
-	
-	@FindBy(id="email")
+
+	@FindBy(id = "email")
 	private WebElement emailID;
-	
-	@FindBy(id="password")
+
+	@FindBy(id = "password")
 	private WebElement password;
-	
-	@FindBy(id="firstName")
+
+	@FindBy(id = "firstName")
 	private WebElement firstName;
-	
-	@FindBy(id="surname")
+
+	@FindBy(id = "surname")
 	private WebElement surName;
-	
-	@FindBy(id="addressLine1")
+
+	@FindBy(id = "addressLine1")
 	private WebElement addressLine1;
-	
-	@FindBy(id="addressLine2")
+
+	@FindBy(id = "addressLine2")
 	private WebElement addressLine2;
-	
-	@FindBy(id="city")
+
+	@FindBy(id = "city")
 	private WebElement city;
-	
-	@FindBy(id="state")
+
+	@FindBy(id = "state")
 	private WebElement state;
-	
-	@FindBy(id="postcode")
+
+	@FindBy(id = "postcode")
 	private WebElement postcode;
-	
-	@FindBy(xpath="//button[@data-test='register-button']")
+
+	@FindBy(xpath = "//button[@data-test='register-button']")
 	private WebElement registerBtn;
-	
-	@FindBy(xpath="//select[@data-test='address-country-dropdown']")
+
+	@FindBy(xpath = "//select[@data-test='address-country-dropdown']")
 	private WebElement countryDropDown;
-	
-	@FindBy(xpath="//button[@data-test='manual-address-entry-button']")
+
+	@FindBy(xpath = "//button[@data-test='manual-address-entry-button']")
 	private WebElement manualAddressBtn;
-		
-	public void enterRegistrationDetails(String addressData1,String addressData2) {
+
+	public void enterRegistrationDetails(String addressData1, String addressData2) {
 		WebDriverWait wait = new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("email")));
 		String emailId = RandomStringUtils.randomAlphanumeric(10);
-		randomGeneratedEmailId=emailId + "@gmail.com";
+		randomGeneratedEmailId = emailId + "@gmail.com";
 		emailID.sendKeys(randomGeneratedEmailId);
 		password.sendKeys("123456");
 		firstName.sendKeys("Harsh");
@@ -72,9 +72,8 @@ public class RegisterPage extends Base{
 	public void clickOnRegisterBtn() {
 		registerBtn.click();
 	}
-	
-	public RegisterPage() {
-		PageFactory.initElements(driver,this);
-	}
 
+	public RegisterPage() {
+		PageFactory.initElements(driver, this);
+	}
 }

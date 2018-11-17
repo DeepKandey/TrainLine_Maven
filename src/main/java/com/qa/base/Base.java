@@ -34,7 +34,7 @@ public class Base {
 
 	public void initialization() {
 		if (driver == null) {
-			System.setProperty("webdriver.chrome.driver", "C:\\Users\\deepa\\Downloads\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "C:\\Users\\deepa\\Downloads\\Drivers\\Chrome Drivers\\chromedriver_win.exe");
 			driver = new ChromeDriver();
 		}
 		eDriver = new EventFiringWebDriver(driver);
@@ -44,7 +44,7 @@ public class Base {
 		eDriver.register(eventListener);
 
 		driver = eDriver;
-		driver.manage().window().fullscreen();
+		driver.manage().window().maximize();;
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		wait = new WebDriverWait(driver, TestUtil.EXPLICIT_WAIT);
