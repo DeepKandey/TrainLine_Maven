@@ -62,7 +62,6 @@ public class TicketFareTest extends Base {
 		// checkOutPage.enterDetailsForCheckOut();
 		String fareOnCheckOutPage = checkOutPage.getFareOnChckOutPage();
 		if (fareOnCheckOutPage.equals(fareOnMatrixPage)) {
-			// System.out.println("Ticket fares are matching");
 			LoggerUtil.logMessage("Ticket fares are matching");
 		}
 		Assert.assertEquals(fareOnCheckOutPage, fareOnMatrixPage, "Fares do not match");

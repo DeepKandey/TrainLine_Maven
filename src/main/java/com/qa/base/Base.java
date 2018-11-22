@@ -6,13 +6,15 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.qa.util.LoggerUtil;
 import com.qa.util.TestUtil;
 import com.qa.util.WebEventListener;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Base {
 	public static WebDriver driver = null;
@@ -34,8 +36,11 @@ public class Base {
 
 	public void initialization() {
 		if (driver == null) {
-			System.setProperty("webdriver.chrome.driver", "C:\\Users\\deepa\\Downloads\\Drivers\\Chrome Drivers\\chromedriver_win.exe");
-			driver = new ChromeDriver();
+			/*
+			 * WebDriverManager.chromedriver().setup(); driver = new ChromeDriver();
+			 */
+			WebDriverManager.firefoxdriver().setup();
+			driver = new FirefoxDriver();
 		}
 		eDriver = new EventFiringWebDriver(driver);
 		// Now create object of EventListenerHandler to register it with
@@ -44,7 +49,8 @@ public class Base {
 		eDriver.register(eventListener);
 
 		driver = eDriver;
-		driver.manage().window().maximize();;
+		driver.manage().window().maximize();
+		;
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		wait = new WebDriverWait(driver, TestUtil.EXPLICIT_WAIT);

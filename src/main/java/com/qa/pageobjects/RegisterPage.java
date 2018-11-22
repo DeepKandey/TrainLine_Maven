@@ -55,7 +55,11 @@ public class RegisterPage extends Base {
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("email")));
 		String emailId = RandomStringUtils.randomAlphanumeric(10);
 		randomGeneratedEmailId = emailId + "@gmail.com";
-		emailID.sendKeys(randomGeneratedEmailId);
+		String[] emailInArray = randomGeneratedEmailId.split("");
+		for (String str : emailInArray) {
+			emailID.sendKeys(str);
+		}
+		// emailID.sendKeys("123QWE@gmail.com");
 		password.sendKeys("123456");
 		firstName.sendKeys("Harsh");
 		surName.sendKeys("Shah");
