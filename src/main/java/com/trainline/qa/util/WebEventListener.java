@@ -19,11 +19,11 @@ import com.trainline.qa.base.Base;
 public class WebEventListener extends Base implements WebDriverEventListener {
 
 	public void beforeAlertAccept(WebDriver driver) {
-		System.out.println("Before accepting alert");
+		LoggerUtil.logMessage("Before accepting alert");
 	}
 
 	public void afterAlertAccept(WebDriver driver) {
-		System.out.println("After accepting alert");
+		LoggerUtil.logMessage("After accepting alert");
 	}
 
 	public void afterAlertDismiss(WebDriver driver) {
@@ -35,27 +35,27 @@ public class WebEventListener extends Base implements WebDriverEventListener {
 	}
 
 	public void beforeNavigateTo(String url, WebDriver driver) {
-		System.out.println("Before navigating to: '" + url + "'");
+		LoggerUtil.logMessage("Before navigating to: '" + url + "'");
 	}
 
 	public void afterNavigateTo(String url, WebDriver driver) {
-		System.out.println("Navigated to:'" + url + "'");
+		LoggerUtil.logMessage("Navigated to:'" + url + "'");
 	}
 
 	public void beforeNavigateBack(WebDriver driver) {
-		System.out.println("Navigating back to previous page");
+		LoggerUtil.logMessage("Navigating back to previous page");
 	}
 
 	public void afterNavigateBack(WebDriver driver) {
-		System.out.println("Navigated back to previous page");
+		LoggerUtil.logMessage("Navigated back to previous page");
 	}
 
 	public void beforeNavigateForward(WebDriver driver) {
-		System.out.println("Navigating forward to next page");
+		LoggerUtil.logMessage("Navigating forward to next page");
 	}
 
 	public void afterNavigateForward(WebDriver driver) {
-		System.out.println("Navigated forward to next page");
+		LoggerUtil.logMessage("Navigated forward to next page");
 	}
 
 	public void beforeNavigateRefresh(WebDriver driver) {
@@ -67,27 +67,27 @@ public class WebEventListener extends Base implements WebDriverEventListener {
 	}
 
 	public void beforeFindBy(By by, WebElement element, WebDriver driver) {
-		System.out.println("Trying to find Element By : " + by.toString());
+		LoggerUtil.logMessage("Trying to find Element By : " + by.toString());
 	}
 
 	public void afterFindBy(By by, WebElement element, WebDriver driver) {
-		System.out.println("Found Element By : " + by.toString());
+		LoggerUtil.logMessage("Found Element By : " + by.toString());
 	}
 
 	public void beforeClickOn(WebElement element, WebDriver driver) {
-		System.out.println("Trying to click on: " + element.toString());
+		LoggerUtil.logMessage("Trying to click on: " + element.toString());
 	}
 
 	public void afterClickOn(WebElement element, WebDriver driver) {
-		System.out.println("Clicked on: " + element.toString());
+		LoggerUtil.logMessage("Clicked on: " + element.toString());
 	}
 
 	public void beforeChangeValueOf(WebElement element, WebDriver driver, CharSequence[] keysToSend) {
-		System.out.println("Value of the:" + element.toString() + " before any changes made");
+		LoggerUtil.logMessage("Value of the:" + element.toString() + " before any changes made");
 	}
 
 	public void afterChangeValueOf(WebElement element, WebDriver driver, CharSequence[] keysToSend) {
-		System.out.println("Element value changed to: " + element.toString());
+		LoggerUtil.logMessage("Element value changed to: " + element.toString());
 	}
 
 	public void beforeScript(String script, WebDriver driver) {
@@ -123,10 +123,10 @@ public class WebEventListener extends Base implements WebDriverEventListener {
 	}
 
 	public void beforeGetText(WebElement element, WebDriver driver) {
-		System.out.println("Before getting text of the element:" + element.toString());
+		LoggerUtil.logMessage("Before getting text of the element:" + element.toString());
 	}
 
 	public void afterGetText(WebElement element, WebDriver driver, String text) {
-		System.out.println("After getting text of the element:" + element.toString());
+		LoggerUtil.logMessage("After getting text of the element:" + element.toString());
 	}
 }
