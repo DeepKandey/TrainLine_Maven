@@ -34,7 +34,7 @@ public class Base {
 		}
 	}
 
-	public void initialization() {
+	public static void initialization() {
 		if (driver == null) {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();

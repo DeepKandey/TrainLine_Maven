@@ -13,6 +13,7 @@ import com.trainline.qa.pageobjects.CheckOutPage;
 import com.trainline.qa.pageobjects.MatrixPage;
 import com.trainline.qa.pageobjects.RegisterPage;
 import com.trainline.qa.pageobjects.SearchPage;
+import com.trainline.qa.util.ExcelReader;
 import com.trainline.qa.util.LoggerUtil;
 import com.trainline.qa.util.TestUtil;
 
@@ -41,7 +42,8 @@ public class TicketFareTest extends Base {
 
 	@DataProvider
 	public Object[][] getData() throws IOException {
-		Object userData[][] = TestUtil.getExcelData(TestUtil.TEST_DATA_PATH, "Sheet2");
+		ExcelReader excelReader = new ExcelReader(TestUtil.TEST_DATA_PATH);
+		Object userData[][] = excelReader.getExcelData("Sheet2");
 		return userData;
 	}
 

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="1" total="2" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Train Line Assignment suite" duration-ms="64588" started-at="2018-11-28T05:51:19Z" finished-at="2018-11-28T05:52:24Z">
+  <suite name="Default suite" duration-ms="70055" started-at="2018-11-28T12:29:38Z" finished-at="2018-11-28T12:30:48Z">
     <groups>
     </groups>
-    <test name="Ticket Fare Test" duration-ms="64588" started-at="2018-11-28T05:51:19Z" finished-at="2018-11-28T05:52:24Z">
+    <test name="Default test" duration-ms="70055" started-at="2018-11-28T12:29:38Z" finished-at="2018-11-28T12:30:48Z">
       <class name="com.trainline.qa.tests.TicketFareTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.trainline.qa.tests.TicketFareTest@4148db48]" name="setUp" is-config="true" duration-ms="22998" started-at="2018-11-28T11:21:21Z" finished-at="2018-11-28T11:21:44Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.trainline.qa.tests.TicketFareTest@464bee09]" name="setUp" is-config="true" duration-ms="24389" started-at="2018-11-28T17:59:39Z" finished-at="2018-11-28T18:00:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="verifyTicketFare(java.lang.String, java.lang.String)[pri:0, instance:com.trainline.qa.tests.TicketFareTest@4148db48]" name="verifyTicketFare" duration-ms="34170" started-at="2018-11-28T11:21:44Z" data-provider="getData" finished-at="2018-11-28T11:22:18Z">
+        <test-method status="PASS" signature="verifyTicketFare(java.lang.String, java.lang.String)[pri:0, instance:com.trainline.qa.tests.TicketFareTest@464bee09]" name="verifyTicketFare" duration-ms="39792" started-at="2018-11-28T18:00:03Z" data-provider="getData" finished-at="2018-11-28T18:00:43Z">
           <params>
             <param index="0">
               <value>
@@ -27,11 +27,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyTicketFare -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.trainline.qa.tests.TicketFareTest@4148db48]" name="tearDown" is-config="true" duration-ms="5637" started-at="2018-11-28T11:22:18Z" finished-at="2018-11-28T11:22:24Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.trainline.qa.tests.TicketFareTest@464bee09]" name="tearDown" is-config="true" duration-ms="5195" started-at="2018-11-28T18:00:43Z" finished-at="2018-11-28T18:00:48Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- com.trainline.qa.tests.TicketFareTest -->
-    </test> <!-- Ticket Fare Test -->
-  </suite> <!-- Train Line Assignment suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

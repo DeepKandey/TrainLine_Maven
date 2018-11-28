@@ -55,10 +55,10 @@ public class TestUtil extends Base {
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			LoggerUtil.logMessage(e.getMessage());
 		} finally {
-			//workbook.close();
-			//fis.close();
+			// workbook.close();
+			// fis.close();
 		}
 		return arrayData;
 	}

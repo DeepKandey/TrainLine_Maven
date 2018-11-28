@@ -107,7 +107,7 @@ public class WebEventListener extends Base implements WebDriverEventListener {
 	}
 
 	public void onException(Throwable throwable, WebDriver driver) {
-		System.out.println("Exception occured: " + throwable);
+		LoggerUtil.logMessage("Exception occured: " + throwable);
 		/*
 		 * try { TestUtil.takeScreenshotAtEndOfTest(); } catch (IOException e) {
 		 * e.printStackTrace(); }
