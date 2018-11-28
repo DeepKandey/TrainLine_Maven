@@ -1,2 +1,2 @@
-com\qa\tests\DemoTest.class
-com\qa\tests\TicketFareTest.class
+com\trainline\qa\tests\TicketFareTest.class
+com\trainline\qa\tests\DemoTest.class

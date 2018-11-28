@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Train Line Assignment suite]">
+<suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [Train Line Assignment suite]">
   <listeners>
     <listener class-name="com.qa.util.AnnotationTransformer"/>
     <listener class-name="com.qa.report.ExtentTestNGITestListener"/>
   </listeners>
-  <test thread-count="5" name="Ticket Fare Test(failed)">
+  <test name="Ticket Fare Test(failed)">
     <classes>
-      <class name="com.qa.tests.DemoTest">
+      <class name="com.qa.tests.TicketFareTest">
         <methods>
           <include name="tearDown"/>
-          <include name="demoTest"/>
-          <include name="setup"/>
+          <include name="verifyTicketFare" invocation-numbers="0 0"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- com.qa.tests.DemoTest -->
+      </class> <!-- com.qa.tests.TicketFareTest -->
     </classes>
   </test> <!-- Ticket Fare Test(failed) -->
 </suite> <!-- Failed suite [Train Line Assignment suite] -->
