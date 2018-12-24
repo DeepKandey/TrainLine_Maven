@@ -7,7 +7,7 @@
         <methods>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="verifyTicketFare"/>
+          <include name="verifyTicketFare" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.trainline.qa.tests.TicketFareTest -->
     </classes>

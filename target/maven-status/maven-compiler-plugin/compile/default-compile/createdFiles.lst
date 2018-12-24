@@ -8,6 +8,7 @@ com\trainline\qa\base\Base.class
 com\trainline\qa\report\ExtentManager.class
 com\trainline\qa\pageobjects\CheckOutPage.class
 com\trainline\qa\util\AnnotationTransformer.class
+com\trainline\qa\util\ExcelReader.class
 com\trainline\qa\report\ExtentManager$1.class
 com\trainline\qa\util\RetryAnalyzer.class
 com\trainline\qa\util\WebEventListener.class

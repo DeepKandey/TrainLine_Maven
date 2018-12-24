@@ -13,7 +13,7 @@ public class MatrixPage extends Base {
 	@FindBy(xpath = "descendant::input[@type='radio'][5]")
 	private WebElement ticketFareRadioBtn;
 
-	@FindBy(xpath = "descendant::input[@type='radio'][5]/parent::div/following-sibling::span/span")
+	@FindBy(xpath = "descendant::input[@type='radio'][5]/parent::div/following-sibling::div/span[2]/span")
 	private WebElement ticketFareValue1;
 
 	@FindBy(xpath = "descendant::input[@type='radio'][5]/parent::div/following-sibling::div/span[2]/span/span")
@@ -38,6 +38,7 @@ public class MatrixPage extends Base {
 		try {
 			if (ticketFareValue1.isDisplayed())
 				fareOnMatrixPage = ticketFareValue1.getAttribute("innerHTML");
+			System.out.println(fareOnMatrixPage);
 		} catch (Exception e) {
 			fareOnMatrixPage = ticketFareValue2.getAttribute("innerHTML");
 		}

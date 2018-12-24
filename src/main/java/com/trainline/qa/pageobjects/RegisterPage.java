@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.trainline.qa.base.Base;
@@ -61,15 +60,12 @@ public class RegisterPage extends Base {
 		password.sendKeys("123456");
 		firstName.sendKeys("Harsh");
 		surName.sendKeys("Shah");
-		manualAddressBtn.click();
-		Select select = new Select(countryDropDown);
-		select.selectByVisibleText("India");
-		addressLine1.sendKeys(addressData1);
-		addressLine2.sendKeys(addressData2);
-		city.sendKeys("Mumbai");
-		state.sendKeys("Maharashtra");
-		postcode.sendKeys("411207");
-	}
+		/*
+		 * manualAddressBtn.click(); Select select = new Select(countryDropDown);
+		 * select.selectByVisibleText("India"); addressLine1.sendKeys(addressData1);
+		 * addressLine2.sendKeys(addressData2); city.sendKeys("Mumbai");
+		 * state.sendKeys("Maharashtra"); postcode.sendKeys("411207");
+		 */	}
 
 	public void clickOnRegisterBtn() {
 		registerBtn.click();
