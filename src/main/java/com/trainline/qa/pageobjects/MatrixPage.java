@@ -1,23 +1,26 @@
 package com.trainline.qa.pageobjects;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.trainline.qa.base.Base;
+import com.trainline.qa.util.LoggerUtil;
 
 public class MatrixPage extends Base {
 
-	@FindBy(xpath = "descendant::input[@type='radio'][5]")
-	private WebElement ticketFareRadioBtn;
+	private String fareOnMatrixPage = null;
+
+	@FindBy(xpath = "descendant::input[@type='radio']")
+	private List<WebElement> ticketFareRadioBtn;
 
 	@FindBy(xpath = "descendant::input[@type='radio'][5]/parent::div/following-sibling::div/span[2]/span")
 	private WebElement ticketFareValue1;
-
-	@FindBy(xpath = "descendant::input[@type='radio'][5]/parent::div/following-sibling::div/span[2]/span/span")
-	private WebElement ticketFareValue2;
 
 	@FindBy(linkText = "Register")
 	private WebElement registerLnk;
@@ -26,22 +29,51 @@ public class MatrixPage extends Base {
 	private WebElement quickChckOut;
 
 	public void clickOnFirstClassOption() {
-		wait.until(ExpectedConditions.elementToBeClickable(ticketFareRadioBtn));
-		ticketFareRadioBtn.click();
-		if (!driver.findElements(By.xpath("descendant::input[@type='radio'][5]")).isEmpty()) {
-			ticketFareRadioBtn.click();
+		List<WebElement> radioBtnList = driver.findElements(By.xpath("descendant::input[@type='radio']"));
+		String beforexPath = "descendant::input[@type='radio'][ ";
+		String afterxPath = "]/parent::div/following-sibling::div/span[2]/span";
+		try {
+			if (radioBtnList.size() < 5) {
+				wait.until(ExpectedConditions.elementToBeClickable(radioBtnList.get(2)));
+				wait.until(ExpectedConditions.visibilityOf(radioBtnList.get(2)));
+				radioBtnList.get(2).click();
+
+				String fareXpath = beforexPath + 3 + afterxPath;
+				fareOnMatrixPage = driver.findElement(By.xpath(fareXpath)).getText();
+				LoggerUtil.logMessage(fareOnMatrixPage);
+
+			} else {
+				wait.until(ExpectedConditions.elementToBeClickable(radioBtnList.get(4)));
+				wait.until(ExpectedConditions.visibilityOf(radioBtnList.get(4)));
+				radioBtnList.get(4).click();
+				String fareXpath = beforexPath + 5 + afterxPath;
+				fareOnMatrixPage = driver.findElement(By.xpath(fareXpath)).getText();
+				LoggerUtil.logMessage(fareOnMatrixPage);
+			}
+		} catch (StaleElementReferenceException e) {
+			List<WebElement> radioBtnList1 = driver.findElements(By.xpath("descendant::input[@type='radio']"));
+			if (radioBtnList1.size() < 5) {
+				wait.until(ExpectedConditions.elementToBeClickable(radioBtnList.get(2)));
+				wait.until(ExpectedConditions.invisibilityOf(radioBtnList.get(2)));
+				radioBtnList.get(2).click();
+				String fareXpath = beforexPath + 3 + afterxPath;
+				fareOnMatrixPage = driver.findElement(By.xpath(fareXpath)).getText();
+				LoggerUtil.logMessage(fareOnMatrixPage);
+
+			} else {
+				wait.until(ExpectedConditions.elementToBeClickable(radioBtnList.get(4)));
+				wait.until(ExpectedConditions.visibilityOf(radioBtnList.get(4)));
+				radioBtnList.get(4).click();
+				String fareXpath = beforexPath + 5 + afterxPath;
+				fareOnMatrixPage = driver.findElement(By.xpath(fareXpath)).getText();
+				LoggerUtil.logMessage(fareOnMatrixPage);
+			}
 		}
+
 	}
 
 	public String getFareOnMatrixPage() {
-		String fareOnMatrixPage = null;
-		try {
-			if (ticketFareValue1.isDisplayed())
-				fareOnMatrixPage = ticketFareValue1.getAttribute("innerHTML");
-			System.out.println(fareOnMatrixPage);
-		} catch (Exception e) {
-			fareOnMatrixPage = ticketFareValue2.getAttribute("innerHTML");
-		}
+		LoggerUtil.logMessage(fareOnMatrixPage);
 		return fareOnMatrixPage;
 	}
 
