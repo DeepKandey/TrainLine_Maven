@@ -29,6 +29,7 @@ public class MatrixPage extends Base {
 	private WebElement quickChckOut;
 
 	public void clickOnFirstClassOption() {
+		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//button[@class='_1vwjm4ai']"))));
 		List<WebElement> radioBtnList = driver.findElements(By.xpath("descendant::input[@type='radio']"));
 		String beforexPath = "descendant::input[@type='radio'][ ";
 		String afterxPath = "]/parent::div/following-sibling::div/span[2]/span";
@@ -51,19 +52,19 @@ public class MatrixPage extends Base {
 				LoggerUtil.logMessage(fareOnMatrixPage);
 			}
 		} catch (StaleElementReferenceException e) {
+			driver.navigate().refresh();
 			List<WebElement> radioBtnList1 = driver.findElements(By.xpath("descendant::input[@type='radio']"));
 			if (radioBtnList1.size() < 5) {
-				wait.until(ExpectedConditions.elementToBeClickable(radioBtnList.get(2)));
-				wait.until(ExpectedConditions.invisibilityOf(radioBtnList.get(2)));
-				radioBtnList.get(2).click();
+				wait.until(ExpectedConditions.elementToBeClickable(radioBtnList1.get(2)));
+				radioBtnList1.get(2).click();
 				String fareXpath = beforexPath + 3 + afterxPath;
 				fareOnMatrixPage = driver.findElement(By.xpath(fareXpath)).getText();
 				LoggerUtil.logMessage(fareOnMatrixPage);
 
 			} else {
-				wait.until(ExpectedConditions.elementToBeClickable(radioBtnList.get(4)));
-				wait.until(ExpectedConditions.visibilityOf(radioBtnList.get(4)));
-				radioBtnList.get(4).click();
+				wait.until(ExpectedConditions.elementToBeClickable(radioBtnList1.get(4)));
+				wait.until(ExpectedConditions.visibilityOf(radioBtnList1.get(4)));
+				radioBtnList1.get(4).click();
 				String fareXpath = beforexPath + 5 + afterxPath;
 				fareOnMatrixPage = driver.findElement(By.xpath(fareXpath)).getText();
 				LoggerUtil.logMessage(fareOnMatrixPage);
