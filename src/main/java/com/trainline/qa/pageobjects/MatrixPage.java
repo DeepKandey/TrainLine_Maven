@@ -83,9 +83,26 @@ public class MatrixPage extends Base {
 		return new RegisterPage();
 	}
 
-	public void clickOnChckOut() {
-		wait.until(ExpectedConditions.visibilityOf(quickChckOut));
-		quickChckOut.click();
+	public void clickOnChckOut() throws InterruptedException {
+		try {
+			WebElement continueBtn1 = driver.findElement(By.xpath("//span[@class='_eu1pe2']/span"));
+			wait.until(ExpectedConditions.elementToBeClickable(continueBtn1));
+			continueBtn1.click();
+			WebElement continueBtn2 = driver.findElement(By.xpath("//span[@class='_eu1pe2']/span"));
+			wait.until(ExpectedConditions.visibilityOf(continueBtn2));
+			continueBtn2.click();
+			/*
+			 * wait.until(ExpectedConditions.visibilityOf(quickChckOut));
+			 * quickChckOut.click();
+			 */
+		} catch (Exception e) {
+			LoggerUtil.logMessage("Exception occured: " + e.getMessage());
+			Thread.sleep(2000);
+			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@class='_eu1pe2']/span")));
+			WebElement continueBtn2 = driver.findElement(By.xpath("//span[@class='_eu1pe2']/span"));
+			wait.until(ExpectedConditions.elementToBeClickable(continueBtn2));
+			continueBtn2.click();
+		}
 	}
 
 	public MatrixPage() {
