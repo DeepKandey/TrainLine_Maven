@@ -41,7 +41,7 @@ public class MatrixPage extends Base {
 
 				String fareXpath = beforexPath + 3 + afterxPath;
 				fareOnMatrixPage = driver.findElement(By.xpath(fareXpath)).getText();
-				LoggerUtil.logMessage(fareOnMatrixPage);
+				LoggerUtil.logMessage("Fare on Matrix Page: "+ fareOnMatrixPage);
 
 			} else {
 				wait.until(ExpectedConditions.elementToBeClickable(radioBtnList.get(4)));
@@ -49,7 +49,7 @@ public class MatrixPage extends Base {
 				radioBtnList.get(4).click();
 				String fareXpath = beforexPath + 5 + afterxPath;
 				fareOnMatrixPage = driver.findElement(By.xpath(fareXpath)).getText();
-				LoggerUtil.logMessage(fareOnMatrixPage);
+				LoggerUtil.logMessage("Fare on Matrix Page: "+fareOnMatrixPage);
 			}
 		} catch (StaleElementReferenceException e) {
 			driver.navigate().refresh();
@@ -59,7 +59,7 @@ public class MatrixPage extends Base {
 				radioBtnList1.get(2).click();
 				String fareXpath = beforexPath + 3 + afterxPath;
 				fareOnMatrixPage = driver.findElement(By.xpath(fareXpath)).getText();
-				LoggerUtil.logMessage(fareOnMatrixPage);
+				LoggerUtil.logMessage("Fare on Matrix Page: "+ fareOnMatrixPage);
 
 			} else {
 				wait.until(ExpectedConditions.elementToBeClickable(radioBtnList1.get(4)));
@@ -67,14 +67,13 @@ public class MatrixPage extends Base {
 				radioBtnList1.get(4).click();
 				String fareXpath = beforexPath + 5 + afterxPath;
 				fareOnMatrixPage = driver.findElement(By.xpath(fareXpath)).getText();
-				LoggerUtil.logMessage(fareOnMatrixPage);
+				LoggerUtil.logMessage("Fare on Matrix Page: "+fareOnMatrixPage);
 			}
 		}
 
 	}
 
 	public String getFareOnMatrixPage() {
-		LoggerUtil.logMessage(fareOnMatrixPage);
 		return fareOnMatrixPage;
 	}
 
@@ -88,17 +87,14 @@ public class MatrixPage extends Base {
 			WebElement continueBtn1 = driver.findElement(By.xpath("//span[@class='_eu1pe2']/span"));
 			wait.until(ExpectedConditions.elementToBeClickable(continueBtn1));
 			continueBtn1.click();
+			Thread.sleep(2000);
 			WebElement continueBtn2 = driver.findElement(By.xpath("//span[@class='_eu1pe2']/span"));
 			wait.until(ExpectedConditions.visibilityOf(continueBtn2));
 			continueBtn2.click();
-			/*
-			 * wait.until(ExpectedConditions.visibilityOf(quickChckOut));
-			 * quickChckOut.click();
-			 */
 		} catch (Exception e) {
 			LoggerUtil.logMessage("Exception occured: " + e.getMessage());
 			Thread.sleep(2000);
-			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@class='_eu1pe2']/span")));
+			wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[@class='_eu1pe2']/span"))));
 			WebElement continueBtn2 = driver.findElement(By.xpath("//span[@class='_eu1pe2']/span"));
 			wait.until(ExpectedConditions.elementToBeClickable(continueBtn2));
 			continueBtn2.click();
