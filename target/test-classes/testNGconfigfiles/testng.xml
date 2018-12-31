@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Train Line Assignment suite" parallel="tests"
-	verbose="2" thread-count="1" configfailurepolicy="skip">  <!-- continue if precondition i.e *Before fails -->
+<suite name="Train Line Assignment suite" parallel="methods"
+	verbose="2" thread-count="4" configfailurepolicy="skip">  <!-- continue if precondition i.e *Before fails -->
 	<listeners>
 		<!--<listener class-name="com.qa.extentReportListener.ExtentTestNGIReporterListener" 
 			/> -->
-		<listener class-name="com.trainline.qa.util.AnnotationTransformer" />
+		<listener
+			class-name="com.trainline.qa.util.AnnotationTransformer" />
 		<listener
 			class-name="com.trainline.qa.report.ExtentTestNGITestListener" />
 	</listeners>
@@ -14,7 +15,7 @@
 		<classes>
 			<class name="com.trainline.qa.tests.DemoTest">
 				<methods>
-					<exclude name="demoTest" />
+					<include name="demoTest" />
 				</methods>
 			</class>
 			<class name="com.trainline.qa.tests.TicketFareTest" />

@@ -2,13 +2,14 @@ package com.trainline.qa.tests;
 
 import java.io.IOException;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.trainline.qa.base.Base;
+import com.trainline.qa.base.DriverFactory;
 import com.trainline.qa.pageobjects.CheckOutPage;
 import com.trainline.qa.pageobjects.MatrixPage;
 import com.trainline.qa.pageobjects.RegisterPage;
@@ -17,7 +18,7 @@ import com.trainline.qa.util.ExcelReader;
 import com.trainline.qa.util.LoggerUtil;
 import com.trainline.qa.util.TestUtil;
 
-public class TicketFareTest extends Base {
+public class TicketFareTest {
 
 	public SearchPage searchPage;
 	public MatrixPage matrixPage;
@@ -26,18 +27,19 @@ public class TicketFareTest extends Base {
 
 	@BeforeMethod
 	public void setUp() {
-		initialization();
-		driver.get(prop.getProperty("url"));
-		searchPage = new SearchPage();
-		matrixPage = new MatrixPage();
-		registerPage = new RegisterPage();
-		checkOutPage = new CheckOutPage();
+		DriverFactory.getInstance().setDriver("chrome");
+		WebDriver driver = TestUtil.webDriverEvents(DriverFactory.getInstance().getDriver());
+		driver.get(TestUtil.APP_URL);
+
+		searchPage = new SearchPage(driver);
+		matrixPage = new MatrixPage(driver);
+		registerPage = new RegisterPage(driver);
+		checkOutPage = new CheckOutPage(driver);
 	}
 
 	@AfterTest
 	public void tearDown() {
-		driver.quit();
-		driver = null;
+		DriverFactory.getInstance().removeDriver();
 	}
 
 	@DataProvider
@@ -53,16 +55,16 @@ public class TicketFareTest extends Base {
 		searchPage.enterJourneyDetails();
 		searchPage.clickOnSearchBtn();
 		matrixPage.clickOnFirstClassOption();
-		registerPage = matrixPage.clickOnRegisterLink();
+		matrixPage.clickOnRegisterLink();
 		registerPage.enterRegistrationDetails(addressData1, addressData2);
 		registerPage.clickOnRegisterBtn();
 		searchPage.clickOnSearchBtn();
 		matrixPage.clickOnFirstClassOption();
 		String fareOnMatrixPage = matrixPage.getFareOnMatrixPage();
 		Thread.sleep(3000);
-		matrixPage.clickOnChckOut();
+		matrixPage.clickOnCheckOut();
 		// checkOutPage.enterDetailsForCheckOut();
-		String fareOnCheckOutPage = checkOutPage.getFareOnChckOutPage();
+		String fareOnCheckOutPage = checkOutPage.getFareOnCheckOutPage();
 		if (fareOnCheckOutPage.equals(fareOnMatrixPage)) {
 			LoggerUtil.logMessage("Ticket fares are matching");
 		}

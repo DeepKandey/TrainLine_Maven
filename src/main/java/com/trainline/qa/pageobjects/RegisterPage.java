@@ -2,15 +2,16 @@ package com.trainline.qa.pageobjects;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.trainline.qa.base.Base;
+import com.trainline.qa.base.DriverFactory;
 
-public class RegisterPage extends Base {
+public class RegisterPage {
 
 	@FindBy(id = "email")
 	private WebElement emailID;
@@ -49,7 +50,7 @@ public class RegisterPage extends Base {
 	private WebElement manualAddressBtn;
 
 	public void enterRegistrationDetails(String addressData1, String addressData2) {
-		WebDriverWait wait = new WebDriverWait(driver, 15);
+		WebDriverWait wait = new WebDriverWait(DriverFactory.getInstance().getDriver(), 15);
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("email")));
 		String emailId = RandomStringUtils.randomAlphanumeric(10);
 		String randomGeneratedEmailId = emailId + "@gmail.com";
@@ -65,13 +66,13 @@ public class RegisterPage extends Base {
 		 * select.selectByVisibleText("India"); addressLine1.sendKeys(addressData1);
 		 * addressLine2.sendKeys(addressData2); city.sendKeys("Mumbai");
 		 * state.sendKeys("Maharashtra"); postcode.sendKeys("411207");
-		 */	}
+		 */ }
 
 	public void clickOnRegisterBtn() {
 		registerBtn.click();
 	}
 
-	public RegisterPage() {
+	public RegisterPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 }

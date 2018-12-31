@@ -9,10 +9,9 @@ import org.testng.ITestResult;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
-import com.trainline.qa.base.Base;
 import com.trainline.qa.util.TestUtil;
 
-public class ExtentTestNGITestListener extends Base implements ITestListener {
+public class ExtentTestNGITestListener  implements ITestListener {
 
 	// Extent Report Declarations
 	private static ExtentReports extent = ExtentManager.createInstance();

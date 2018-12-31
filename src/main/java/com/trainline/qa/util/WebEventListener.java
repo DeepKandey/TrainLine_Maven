@@ -14,9 +14,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.events.WebDriverEventListener;
 
-import com.trainline.qa.base.Base;
-
-public class WebEventListener extends Base implements WebDriverEventListener {
+public class WebEventListener implements WebDriverEventListener {
 
 	public void beforeAlertAccept(WebDriver driver) {
 		LoggerUtil.logMessage("Before accepting alert");
