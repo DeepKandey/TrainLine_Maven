@@ -25,57 +25,46 @@ public class MatrixPage {
 	@FindBy(xpath = "descendant::input[@type='radio'][5]/parent::div/following-sibling::div/span[2]/span")
 	private WebElement ticketFareValue1;
 
+	@FindBy(xpath = "//button[@class='_1vwjm4ai']")
+	private WebElement changeLink;
+
 	@FindBy(linkText = "Register")
 	private WebElement registerLnk;
 
 	@FindBy(xpath = "//button[@data-test='cjs-button-quick-buy']")
 	private WebElement quickChckOut;
 
-	public void clickOnFirstClassOption() throws InterruptedException {
-		Thread.sleep(1000);
-		WebDriverWait wait = new WebDriverWait(DriverFactory.getInstance().getDriver(), TestUtil.EXPLICIT_WAIT);
-		wait.until(ExpectedConditions.elementToBeClickable(
-				DriverFactory.getInstance().getDriver().findElement(By.xpath("//button[@class='_1vwjm4ai']"))));
-		Thread.sleep(1000);
-		List<WebElement> radioBtnList = DriverFactory.getInstance().getDriver()
-				.findElements(By.xpath("descendant::input[@type='radio']"));
+	WebDriverWait wait = new WebDriverWait(DriverFactory.getInstance().getDriver(), TestUtil.EXPLICIT_WAIT);
+
+	public void clickOnFirstClassOption() {
+		wait.until(ExpectedConditions.elementToBeClickable(changeLink));
+		//Thread.sleep(1000);
+		try {
+			clickOnRadioBtnLogic();
+		} catch (StaleElementReferenceException e) {
+			clickOnRadioBtnLogic();
+		}
+	}
+
+	private void clickOnRadioBtnLogic() {
 		String beforexPath = "descendant::input[@type='radio'][ ";
 		String afterxPath = "]/parent::div/following-sibling::div/span[2]/span";
-		try {
-			if (radioBtnList.size() < 5) {
-				wait.until(ExpectedConditions.elementToBeClickable(radioBtnList.get(2)));
-				radioBtnList.get(2).click();
 
-				String fareXpath = beforexPath + 3 + afterxPath;
-				fareOnMatrixPage = DriverFactory.getInstance().getDriver().findElement(By.xpath(fareXpath)).getText();
-				LoggerUtil.logMessage("Fare on Matrix Page when size is less than 5 : " + fareOnMatrixPage);
+		if (ticketFareRadioBtn.size() < 5) {
+			wait.until(ExpectedConditions.elementToBeClickable(ticketFareRadioBtn.get(2)));
+			ticketFareRadioBtn.get(2).click();
 
-			} else {
-				wait.until(ExpectedConditions.elementToBeClickable(radioBtnList.get(4)));
-				radioBtnList.get(4).click();
-				
-				String fareXpath = beforexPath + 5 + afterxPath;
-				fareOnMatrixPage = DriverFactory.getInstance().getDriver().findElement(By.xpath(fareXpath)).getText();
-				LoggerUtil.logMessage("Fare on Matrix Page when size is greater than 5 : " + fareOnMatrixPage);
-			}
-		} catch (StaleElementReferenceException e) {
-			List<WebElement> radioBtnList1 = DriverFactory.getInstance().getDriver()
-					.findElements(By.xpath("descendant::input[@type='radio']"));
-			if (radioBtnList1.size() < 5) {
-				radioBtnList1.get(2).click();
-				
-				String fareXpath = beforexPath + 3 + afterxPath;
-				fareOnMatrixPage = DriverFactory.getInstance().getDriver().findElement(By.xpath(fareXpath)).getText();
-				LoggerUtil.logMessage("Fare on Matrix Page: " + fareOnMatrixPage);
+			String fareXpath = beforexPath + 3 + afterxPath;
+			fareOnMatrixPage = DriverFactory.getInstance().getDriver().findElement(By.xpath(fareXpath)).getText();
+			LoggerUtil.logMessage("Fare on Matrix Page when size is less than 5 : " + fareOnMatrixPage);
 
-			} else {
-				wait.until(ExpectedConditions.visibilityOf(radioBtnList1.get(4)));
-				radioBtnList1.get(4).click();
-				
-				String fareXpath = beforexPath + 5 + afterxPath;
-				fareOnMatrixPage = DriverFactory.getInstance().getDriver().findElement(By.xpath(fareXpath)).getText();
-				LoggerUtil.logMessage("Fare on Matrix Page: " + fareOnMatrixPage);
-			}
+		} else {
+			wait.until(ExpectedConditions.elementToBeClickable(ticketFareRadioBtn.get(4)));
+			ticketFareRadioBtn.get(4).click();
+
+			String fareXpath = beforexPath + 5 + afterxPath;
+			fareOnMatrixPage = DriverFactory.getInstance().getDriver().findElement(By.xpath(fareXpath)).getText();
+			LoggerUtil.logMessage("Fare on Matrix Page when size is greater than 5 : " + fareOnMatrixPage);
 		}
 	}
 
@@ -85,7 +74,7 @@ public class MatrixPage {
 
 	public void clickOnRegisterLink() {
 		registerLnk.click();
-	//	return new RegisterPage(DriverFactory.getInstance().getDriver());
+		// return new RegisterPage(DriverFactory.getInstance().getDriver());
 	}
 
 	public void clickOnCheckOut() throws InterruptedException {

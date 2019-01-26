@@ -61,12 +61,7 @@ public class RegisterPage {
 		password.sendKeys("123456");
 		firstName.sendKeys("Harsh");
 		surName.sendKeys("Shah");
-		/*
-		 * manualAddressBtn.click(); Select select = new Select(countryDropDown);
-		 * select.selectByVisibleText("India"); addressLine1.sendKeys(addressData1);
-		 * addressLine2.sendKeys(addressData2); city.sendKeys("Mumbai");
-		 * state.sendKeys("Maharashtra"); postcode.sendKeys("411207");
-		 */ }
+	}
 
 	public void clickOnRegisterBtn() {
 		registerBtn.click();

@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.trainline.qa.base.DriverFactory;
-import com.trainline.qa.util.LoggerUtil;
 import com.trainline.qa.util.TestUtil;
 
 public class SearchPage {
@@ -29,7 +28,7 @@ public class SearchPage {
 	}
 
 	public void enterJourneyDetails() {
-		String destination= "Manchester";
+		String destination = "Manchester";
 		departureStn.sendKeys("London");
 		destinationStn.sendKeys(destination);
 		JavascriptExecutor js = (JavascriptExecutor) DriverFactory.getInstance().getDriver();
@@ -46,11 +45,6 @@ public class SearchPage {
 		WebDriverWait wait = new WebDriverWait(DriverFactory.getInstance().getDriver(), TestUtil.EXPLICIT_WAIT);
 		wait.until(ExpectedConditions.elementToBeClickable(searchButton));
 		searchButton.click();
-		while (!DriverFactory.getInstance().getDriver()
-				.findElements(By.xpath("//button[@data-test='submit-journey-search-button']")).isEmpty()) {
-			LoggerUtil.logMessage("search button is still present after first Click");
-			searchButton.click();
-		}
-		//return new MatrixPage(DriverFactory.getInstance().getDriver());
+		// return new MatrixPage(DriverFactory.getInstance().getDriver());
 	}
 }

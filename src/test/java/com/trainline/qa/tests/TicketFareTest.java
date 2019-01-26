@@ -63,7 +63,6 @@ public class TicketFareTest {
 		String fareOnMatrixPage = matrixPage.getFareOnMatrixPage();
 		Thread.sleep(3000);
 		matrixPage.clickOnCheckOut();
-		// checkOutPage.enterDetailsForCheckOut();
 		String fareOnCheckOutPage = checkOutPage.getFareOnCheckOutPage();
 		if (fareOnCheckOutPage.equals(fareOnMatrixPage)) {
 			LoggerUtil.logMessage("Ticket fares are matching");
