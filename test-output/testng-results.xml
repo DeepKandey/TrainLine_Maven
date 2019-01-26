@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="52121" started-at="2019-01-26T12:09:53Z" finished-at="2019-01-26T12:10:45Z">
+  <suite name="Default suite" duration-ms="54870" started-at="2019-01-26T14:37:56Z" finished-at="2019-01-26T14:38:51Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="52121" started-at="2019-01-26T12:09:53Z" finished-at="2019-01-26T12:10:45Z">
+    <test name="Default test" duration-ms="54870" started-at="2019-01-26T14:37:56Z" finished-at="2019-01-26T14:38:51Z">
       <class name="com.trainline.qa.tests.TicketFareTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.trainline.qa.tests.TicketFareTest@1a968a59]" name="setUp" is-config="true" duration-ms="12023" started-at="2019-01-26T17:39:53Z" finished-at="2019-01-26T17:40:05Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.trainline.qa.tests.TicketFareTest@1a968a59]" name="setUp" is-config="true" duration-ms="11962" started-at="2019-01-26T20:07:57Z" finished-at="2019-01-26T20:08:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="verifyTicketFare(java.lang.String, java.lang.String)[pri:0, instance:com.trainline.qa.tests.TicketFareTest@1a968a59]" name="verifyTicketFare" duration-ms="38640" started-at="2019-01-26T17:40:05Z" data-provider="getData" finished-at="2019-01-26T17:40:44Z">
+        <test-method status="PASS" signature="verifyTicketFare(java.lang.String, java.lang.String)[pri:0, instance:com.trainline.qa.tests.TicketFareTest@1a968a59]" name="verifyTicketFare" duration-ms="41476" started-at="2019-01-26T20:08:09Z" data-provider="getData" finished-at="2019-01-26T20:08:50Z">
           <params>
             <param index="0">
               <value>
@@ -27,7 +27,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyTicketFare -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.trainline.qa.tests.TicketFareTest@1a968a59]" name="tearDown" is-config="true" duration-ms="785" started-at="2019-01-26T17:40:44Z" finished-at="2019-01-26T17:40:45Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.trainline.qa.tests.TicketFareTest@1a968a59]" name="tearDown" is-config="true" duration-ms="791" started-at="2019-01-26T20:08:50Z" finished-at="2019-01-26T20:08:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

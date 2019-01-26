@@ -34,11 +34,14 @@ public class MatrixPage {
 	@FindBy(xpath = "//button[@data-test='cjs-button-quick-buy']")
 	private WebElement quickChckOut;
 
+	@FindBy(xpath = "//span[@class='_eu1pe2']/span")
+	private WebElement continueLnk;
+
 	WebDriverWait wait = new WebDriverWait(DriverFactory.getInstance().getDriver(), TestUtil.EXPLICIT_WAIT);
 
 	public void clickOnFirstClassOption() {
 		wait.until(ExpectedConditions.elementToBeClickable(changeLink));
-		//Thread.sleep(1000);
+		// Thread.sleep(1000);
 		try {
 			clickOnRadioBtnLogic();
 		} catch (StaleElementReferenceException e) {
@@ -77,55 +80,27 @@ public class MatrixPage {
 		// return new RegisterPage(DriverFactory.getInstance().getDriver());
 	}
 
+	private void continueBtnLogic() throws InterruptedException {
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(continueLnk));
+		continueLnk.click();
+	}
+
 	public void clickOnCheckOut() throws InterruptedException {
-		WebDriverWait wait = new WebDriverWait(DriverFactory.getInstance().getDriver(), TestUtil.EXPLICIT_WAIT);
 		try {
-			WebElement continueBtn1 = DriverFactory.getInstance().getDriver()
-					.findElement(By.xpath("//span[@class='_eu1pe2']/span"));
-			wait.until(ExpectedConditions.elementToBeClickable(continueBtn1));
-			LoggerUtil.logMessage("Trying to click on First Continue");
-			continueBtn1.click();
-			LoggerUtil.logMessage("Clicked on First Continue");
-			Thread.sleep(2000);
-
-			WebElement continueBtn2 = DriverFactory.getInstance().getDriver()
-					.findElement(By.xpath("//span[@class='_eu1pe2']/span"));
-			wait.until(ExpectedConditions.visibilityOf(continueBtn2));
-			LoggerUtil.logMessage("Trying to click on Second Continue");
-			continueBtn2.click();
-			LoggerUtil.logMessage("Clicked on Second Continue");
-			Thread.sleep(2000);
-
-			WebElement continueBtn3 = DriverFactory.getInstance().getDriver()
-					.findElement(By.xpath("//span[@class='_eu1pe2']/span"));
-			wait.until(ExpectedConditions.visibilityOf(continueBtn2));
-			LoggerUtil.logMessage("Trying to click on Third Continue");
-			continueBtn3.click();
-			LoggerUtil.logMessage("Clicked on Third Continue");
+			continueBtnLogic();
+			continueBtnLogic();
+			continueBtnLogic();
 		} catch (Exception e) {
 			LoggerUtil.logMessage("Exception occured: " + e.getMessage());
 			Thread.sleep(2000);
-			wait.until(ExpectedConditions.visibilityOf(
-					DriverFactory.getInstance().getDriver().findElement(By.xpath("//span[@class='_eu1pe2']/span"))));
-			WebElement continueBtn2 = DriverFactory.getInstance().getDriver()
-					.findElement(By.xpath("//span[@class='_eu1pe2']/span"));
-			wait.until(ExpectedConditions.elementToBeClickable(continueBtn2));
-			LoggerUtil.logMessage("Trying to click on Second Continue");
-			continueBtn2.click();
-			LoggerUtil.logMessage("Clicked on Second Continue");
-			Thread.sleep(2000);
+
+			continueBtnLogic();
 
 			if (!DriverFactory.getInstance().getDriver().findElements(By.xpath("//span[@class='_eu1pe2']/span"))
 					.isEmpty()) {
-				WebElement continueBtn3 = DriverFactory.getInstance().getDriver()
-						.findElement(By.xpath("//span[@class='_eu1pe2']/span"));
-				wait.until(ExpectedConditions.elementToBeClickable(continueBtn3));
-				LoggerUtil.logMessage("Trying to click on Third Continue");
-				Thread.sleep(2000);
-				continueBtn3.click();
-				LoggerUtil.logMessage("Clicked on Third Continue");
+				continueBtnLogic();
 			}
-
 		}
 	}
 
