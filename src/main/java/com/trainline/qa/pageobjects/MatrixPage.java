@@ -41,7 +41,6 @@ public class MatrixPage {
 
 	public void clickOnFirstClassOption() {
 		wait.until(ExpectedConditions.elementToBeClickable(changeLink));
-		// Thread.sleep(1000);
 		try {
 			clickOnRadioBtnLogic();
 		} catch (StaleElementReferenceException e) {
@@ -77,7 +76,6 @@ public class MatrixPage {
 
 	public void clickOnRegisterLink() {
 		registerLnk.click();
-		// return new RegisterPage(DriverFactory.getInstance().getDriver());
 	}
 
 	private void continueBtnLogic() throws InterruptedException {
@@ -93,10 +91,7 @@ public class MatrixPage {
 			continueBtnLogic();
 		} catch (Exception e) {
 			LoggerUtil.logMessage("Exception occured: " + e.getMessage());
-			Thread.sleep(2000);
-
 			continueBtnLogic();
-
 			if (!DriverFactory.getInstance().getDriver().findElements(By.xpath("//span[@class='_eu1pe2']/span"))
 					.isEmpty()) {
 				continueBtnLogic();

@@ -61,7 +61,7 @@ public class TicketFareTest {
 		searchPage.clickOnSearchBtn();
 		matrixPage.clickOnFirstClassOption();
 		String fareOnMatrixPage = matrixPage.getFareOnMatrixPage();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		matrixPage.clickOnCheckOut();
 		String fareOnCheckOutPage = checkOutPage.getFareOnCheckOutPage();
 		if (fareOnCheckOutPage.equals(fareOnMatrixPage)) {

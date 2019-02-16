@@ -27,6 +27,8 @@ public class SearchPage {
 		PageFactory.initElements(driver, this);
 	}
 
+	WebDriverWait wait = new WebDriverWait(DriverFactory.getInstance().getDriver(), TestUtil.EXPLICIT_WAIT);
+
 	public void enterJourneyDetails() {
 		String destination = "Manchester";
 		departureStn.sendKeys("London");
@@ -42,9 +44,7 @@ public class SearchPage {
 	}
 
 	public void clickOnSearchBtn() {
-		WebDriverWait wait = new WebDriverWait(DriverFactory.getInstance().getDriver(), TestUtil.EXPLICIT_WAIT);
 		wait.until(ExpectedConditions.elementToBeClickable(searchButton));
 		searchButton.click();
-		// return new MatrixPage(DriverFactory.getInstance().getDriver());
 	}
 }

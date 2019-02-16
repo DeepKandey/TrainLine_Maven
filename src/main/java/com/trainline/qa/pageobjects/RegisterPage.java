@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.trainline.qa.base.DriverFactory;
+import com.trainline.qa.util.TestUtil;
 
 public class RegisterPage {
 
@@ -49,8 +50,12 @@ public class RegisterPage {
 	@FindBy(xpath = "//button[@data-test='manual-address-entry-button']")
 	private WebElement manualAddressBtn;
 
+	@FindBy(linkText = "here")
+	private WebElement hereLnk;
+
+	WebDriverWait wait = new WebDriverWait(DriverFactory.getInstance().getDriver(), TestUtil.EXPLICIT_WAIT);
+
 	public void enterRegistrationDetails(String addressData1, String addressData2) {
-		WebDriverWait wait = new WebDriverWait(DriverFactory.getInstance().getDriver(), 15);
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("email")));
 		String emailId = RandomStringUtils.randomAlphanumeric(10);
 		String randomGeneratedEmailId = emailId + "@gmail.com";
@@ -65,6 +70,8 @@ public class RegisterPage {
 
 	public void clickOnRegisterBtn() {
 		registerBtn.click();
+		wait.until(ExpectedConditions.visibilityOf(hereLnk));
+		hereLnk.click();
 	}
 
 	public RegisterPage(WebDriver driver) {
