@@ -78,23 +78,26 @@ public class MatrixPage {
 		registerLnk.click();
 	}
 
-	private void continueBtnLogic() throws InterruptedException {
-		Thread.sleep(2000);
-		wait.until(ExpectedConditions.elementToBeClickable(continueLnk));
-		continueLnk.click();
+	private void continueBtnClickLogic() throws InterruptedException {
+		Thread.sleep(1500);
+		WebElement continueBtn = DriverFactory.getInstance().getDriver()
+				.findElement(By.xpath("//span[@class='_eu1pe2']/span"));
+		wait.until(ExpectedConditions.elementToBeClickable(continueBtn));
+		continueBtn.click();
+		Thread.sleep(1500);
 	}
 
 	public void clickOnCheckOut() throws InterruptedException {
 		try {
-			continueBtnLogic();
-			continueBtnLogic();
-			continueBtnLogic();
+			continueBtnClickLogic();
+			continueBtnClickLogic();
+			continueBtnClickLogic();
 		} catch (Exception e) {
 			LoggerUtil.logMessage("Exception occured: " + e.getMessage());
-			continueBtnLogic();
+			continueBtnClickLogic();
 			if (!DriverFactory.getInstance().getDriver().findElements(By.xpath("//span[@class='_eu1pe2']/span"))
 					.isEmpty()) {
-				continueBtnLogic();
+				continueBtnClickLogic();
 			}
 		}
 	}

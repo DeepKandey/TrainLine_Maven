@@ -28,14 +28,14 @@ public class SearchPage {
 	}
 
 	WebDriverWait wait = new WebDriverWait(DriverFactory.getInstance().getDriver(), TestUtil.EXPLICIT_WAIT);
+	JavascriptExecutor js = (JavascriptExecutor) DriverFactory.getInstance().getDriver();
 
 	public void enterJourneyDetails() {
 		String destination = "Manchester";
 		departureStn.sendKeys("London");
 		destinationStn.sendKeys(destination);
-		JavascriptExecutor js = (JavascriptExecutor) DriverFactory.getInstance().getDriver();
-		String scriptForDestination = "return document.getElementById(\"to.text\").value;";
 
+		String scriptForDestination = "return document.getElementById(\"to.text\").value;";
 		while (!js.executeScript(scriptForDestination).equals(destination)) {
 			destinationStn.clear();
 			destinationStn.sendKeys(destination);
@@ -45,6 +45,10 @@ public class SearchPage {
 
 	public void clickOnSearchBtn() {
 		wait.until(ExpectedConditions.elementToBeClickable(searchButton));
-		searchButton.click();
+		// searchButton.click();
+		while (!DriverFactory.getInstance().getDriver()
+				.findElements(By.xpath("//button[@data-test='submit-journey-search-button']")).isEmpty()) {
+			searchButton.click();
+		}
 	}
 }
