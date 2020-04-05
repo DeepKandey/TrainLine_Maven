@@ -77,5 +77,4 @@ public class DriverFactory {
 		driver.get().quit();
 		driver.remove();
 	}
-
 }
